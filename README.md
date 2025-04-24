@@ -20,7 +20,7 @@ Rather than acting as a standalone player, NilzPlayer is designed to control mus
 |-------------|---------------------|
 | `Space`     | Play / Pause        |
 | `←` / `→`   | Previous / Next Track |
-
+| `CTRL` + `H`   | Hide UI |
 ---
 
 ## 🌌 Visual Effects
