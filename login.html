@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login to Spotify</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #0a0a0a; /* Spotify Green */
+      color: #fff;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+
+    button {
+      background-color: #1db954; /* Spotify Green */
+      color: white;
+      border: none;
+      font-size: 1.2rem;
+      padding: 15px 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1ed760; /* Slightly lighter green */
+    }
+
+    button:active {
+      background-color: #17a34b; /* Darker green on click */
+    }
+
+    .container {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login to Spotify</h2>
+    <button id="loginBtn">Login with Spotify</button>
+  </div>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      ipcRenderer.send('start-spotify-login');
+    });
+  </script>
+</body>
+</html>

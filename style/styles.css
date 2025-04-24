@@ -1,0 +1,293 @@
+body {
+    font-family: 'Segoe UI', 'Segoe UI Emoji', sans-serif;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    min-height: 100vh;
+    background-color: #121212; /* Opaque background color */
+
+    display: flex; /* Enable Flexbox for the body */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    border-radius: 20px; /* Apply rounded corners */
+
+  }
+  
+  #titleBar {
+    position: fixed; /* Fix the title bar at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #121212;
+    opacity: 0.5;
+    color: white;
+    padding: 5px 10px; /* Keep the padding for the title bar itself */
+    height: 30px;
+    -webkit-app-region: drag; /* Make the title bar draggable */
+    z-index: 10; /* Ensure it stays above other elements */
+  }
+  
+  #windowControls {
+    display: flex;
+    gap: 10px;
+  }
+  
+  #windowControls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    -webkit-app-region: no-drag; /* Exclude buttons from drag region */
+  }
+  
+  #windowControls button:hover {
+    background-color: #333;
+  }
+  
+  #vanta-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  #effectSelector {
+    position: fixed;
+    top: 45px;
+    right: 10px;
+    opacity: 0.5;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 2;
+  }
+  
+  #effectDropdown {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: #f0f0f0;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+  
+  #effectDropdown option {
+    background-color: #222;
+    color: #f0f0f0;
+    opacity: 0.5;
+  }
+  
+  #playerContainer {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    width: 400px;
+    text-align: center;
+    /* Remove any explicit positioning that might interfere */
+    z-index: 1;
+  }
+  
+  
+  #albumArtContainer {
+    width: 280px;
+    height: 280px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto 25px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  #albumArt {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  #songDetails {
+    margin-bottom: 20px;
+  }
+  
+  #songTitle {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  #songArtist {
+    color: #b3b3b3;
+    font-size: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  #playerControls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    color: #f0f0f0;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    opacity: 1;
+    color: #d5dad6;
+  }
+  
+  #prevBtn, #nextBtn {
+    font-size: 1.6em;
+  }
+  
+  #playPauseBtn {
+    font-size: 2.4em;
+  }
+
+
+  #playerControls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  #volumeControl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  #volumeSlider {
+    width: calc(3 * 40px + 2 * 8px); /* Slightly narrower */
+    appearance: none;
+    background: #ccc; /* Lighter, minimalist background */
+    height: 6px; /* Slimmer */
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  #volumeSlider::-webkit-slider-thumb {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #555; /* Darker for contrast */
+    border-radius: 50%;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  #volumeSlider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+  }
+  
+  #volumeSlider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: #555;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  #volumeSlider::-moz-range-thumb:hover {
+    transform: scale(1.1);
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  .visible-only {
+    display: block !important;
+    margin: auto;
+  }
+  
+  /* P R O G R E S S B A R */
+  #progressContainer {
+    margin: 15px 0;
+    position: relative; /* Needed for absolute positioning of the thumb */
+  }
+  
+  #progressBar {
+    width: 100%;
+    appearance: none;
+    height: 4px; /* Even slimmer for a more minimalist look */
+    background: #eee;
+    border-radius: 4px; /* Adjust border-radius to match height */
+    outline: none;
+    cursor: pointer;
+  }
+  
+  /* Style the filled part of the progress bar */
+  #progressBar::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #555 var(--progress), #eee var(--progress));
+    border-radius: 4px; /* Adjust border-radius to match height */
+  }
+  
+  #progressBar::-moz-range-track {
+    background: linear-gradient(to right, #555 var(--progress), #eee var(--progress));
+    border-radius: 4px; /* Adjust border-radius to match height */
+  }
+  
+  #progressBar::-webkit-slider-thumb {
+    appearance: none;
+    width: 10px; /* Slightly smaller thumb to match thinner bar */
+    height: 10px;
+    background: #555;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: scale(0); /* Initially hidden */
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  #progressBar:hover::-webkit-slider-thumb {
+    transform: scale(1); /* Show on hover */
+  }
+  
+  #progressBar::-moz-range-thumb {
+    width: 10px; /* Slightly smaller thumb */
+    height: 10px;
+    background: #555;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: scale(0); /* Initially hidden */
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  #progressBar:hover::-moz-range-thumb {
+    transform: scale(1); /* Show on hover */
+  }
+
+  #progressBar::-webkit-progress-value {
+    background-color: #ffffff; /* Spotify green for the filled portion */
+    transition: width 0.1s linear; /* Smooth transition */
+  }
+  
+  #progressBar::-moz-progress-bar {
+    background-color: #ffffff; /* Spotify green for the filled portion */
+  }
