@@ -36,6 +36,8 @@ NilzPlayer currently includes the following background effects:
 - **Fog (No UI)**  
   ![fog-noui](/img/fog-noui.png)
 
+- ** And More**
+
 ---
 
 ## TODO
